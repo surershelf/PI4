@@ -6,20 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Login {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idUser;
     private String login;
     private String password;
 
     public int getId() {
-        return id;
+        return idUser;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idUser = id;
     }
 
     public String getLogin() {
