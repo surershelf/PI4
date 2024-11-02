@@ -1,32 +1,24 @@
 package entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @Entity
-public class Quadra {
+public class Quadra extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idQuadra;
-    @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User idUser;
+    public int idQuadra;
     @Enumerated(EnumType.STRING)
-    private Esporte tipoJogo;
+    public Esporte tipoJogo;
     @Enumerated(EnumType.STRING)
-    private Quadras quadra;
+    public Quadras quadra;
 
     public enum Esporte {
     Futsal, Volei, Basquete;
     }
     public enum Quadras {
         Quadra_1, Quadra_2;
-    }
-    public User getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(User idUser) {
-        this.idUser = idUser;
     }
 
     public Quadras getQuadra() {

@@ -1,26 +1,31 @@
 package entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 import java.sql.Date;
 
 @Entity
-public class Agendamento {
-
-
+public class Agendamento extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idAgendamento;
+    public int idAgendamento;
     @ManyToOne
     @JoinColumn(name = "idUser")
-    private User user;
+    public User user;
     @ManyToOne
     @JoinColumn(name = "idQuadra")
-    private Quadra quadra;
-    private String descricao;
-    private Date data;
+    public Quadra quadra;
+    @OneToOne
+    @JoinColumn(name = "Time1")
+    public Time idTime1;
+    @OneToOne
+    @JoinColumn(name = "Time2")
+    public Time idTime2;
+    public String descricao;
+    public Date data;
     @Enumerated(EnumType.STRING)
-    private HoraAgend hora;
+    public HoraAgend hora;
 
     public enum HoraAgend {
         primeiroJogo("19:00 - 20:30"),
@@ -75,6 +80,22 @@ public class Agendamento {
     public HoraAgend getHora() {
         return hora;
     }
+    public Time getIdTime2() {
+        return idTime2;
+    }
+
+    public void setIdTime2(Time idTime2) {
+        this.idTime2 = idTime2;
+    }
+
+    public Time getIdTime1() {
+        return idTime1;
+    }
+
+    public void setIdTime1(Time idTime1) {
+        this.idTime1 = idTime1;
+    }
+
 
 
 }
