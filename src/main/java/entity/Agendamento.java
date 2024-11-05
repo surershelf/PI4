@@ -22,6 +22,8 @@ public class Agendamento extends PanacheEntityBase {
     @OneToOne
     @JoinColumn(name = "Time2")
     public Time idTime2;
+    @Enumerated(EnumType.STRING)
+    public Esporte tipoJogo;
     public String descricao;
     public Date data;
     @Enumerated(EnumType.STRING)
@@ -36,6 +38,9 @@ public class Agendamento extends PanacheEntityBase {
         HoraAgend(String desc) {
             this.desc = desc;
         }
+    }
+    public enum Esporte {
+        Futsal, Volei, Basquete;
     }
     public int getIdAgendamento() {
         return idAgendamento;
@@ -96,6 +101,14 @@ public class Agendamento extends PanacheEntityBase {
         this.idTime1 = idTime1;
     }
 
+
+    public Esporte getTipoJogo() {
+        return tipoJogo;
+    }
+
+    public void setTipoJogo(Esporte tipoJogo) {
+        this.tipoJogo = tipoJogo;
+    }
 
 
 }

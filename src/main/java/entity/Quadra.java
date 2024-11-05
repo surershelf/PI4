@@ -10,13 +10,8 @@ public class Quadra extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int idQuadra;
     @Enumerated(EnumType.STRING)
-    public Esporte tipoJogo;
-    @Enumerated(EnumType.STRING)
     public Quadras quadra;
 
-    public enum Esporte {
-    Futsal, Volei, Basquete;
-    }
     public enum Quadras {
         Quadra_1, Quadra_2;
     }
@@ -27,14 +22,6 @@ public class Quadra extends PanacheEntityBase {
 
     public void setQuadra(Quadras quadra) {
         this.quadra = quadra;
-    }
-
-    public Esporte getTipoJogo() {
-        return tipoJogo;
-    }
-
-    public void setTipoJogo(Esporte tipoJogo) {
-        this.tipoJogo = tipoJogo;
     }
 
     public int getIdQuadra() {
