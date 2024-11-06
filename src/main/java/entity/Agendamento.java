@@ -39,6 +39,7 @@ public class Agendamento extends PanacheEntityBase {
             this.desc = desc;
         }
     }
+
     public enum Esporte {
         Futsal, Volei, Basquete;
     }

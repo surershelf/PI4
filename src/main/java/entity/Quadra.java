@@ -11,11 +11,19 @@ public class Quadra extends PanacheEntityBase {
     public int idQuadra;
     @Enumerated(EnumType.STRING)
     public Quadras quadra;
+    public Boolean usando = false;
 
     public enum Quadras {
         Quadra_1, Quadra_2;
     }
 
+    public Boolean getUsando() {
+        return usando;
+    }
+
+    public void setUsando(Boolean usando) {
+        this.usando = usando;
+    }
     public Quadras getQuadra() {
         return quadra;
     }
